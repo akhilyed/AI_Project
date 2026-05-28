@@ -1,0 +1,13 @@
+{
+  "name": "describeit-training",
+  "version": "1.0.0",
+  "description": "Fine-tuning script for the DescribeIt word-guessing game AI",
+  "type": "module",
+  "scripts": {
+    "train": "node train.js"
+  },
+  "dependencies": {
+    "openai": "^4.47.0",
+    "dotenv": "^16.4.5"
+  }
+}
