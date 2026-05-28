@@ -54,11 +54,24 @@ if not st.session_state.game_started:
     
     st.markdown("<br>", unsafe_allow_html=True)
     
+    # My original feature I added, no AI
+    difficulty = st.selectbox("Select Difficult:", ("Easy (Short Words)","Normal","Hard (Long Words)"))
+    
     if st.button("🚀 Start Game", use_container_width=True):
+        if difficulty == "Easy (Short Words)":
+            min_len = 4
+            max_len = 6
+        elif difficulty == "Hard (Long Words)":
+            min_len = 8
+            max_len = 12
+        else:
+            min_len = 6
+            max_len = 8
+
         st.session_state.secret_word = r_word.word(
             include_parts_of_speech=["nouns"],
-            word_min_length=4,
-            word_max_length=9
+            word_min_length=min_len,
+            word_max_length=max_len
         ).lower()
         
         st.session_state.game_started = True
